@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  # Railsのサンプルアプリケーション
+  app:
+    volumes:
+      # node_modulesはイメージにあるものを使う
+      - /app/node_modules
+    build: .
+
+    # プロセスが正しく後始末されるようにする
+    init: true
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - .:/app
